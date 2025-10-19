@@ -1,0 +1,172 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  /* overflow: hidden; */
+}
+
+/* ===============================
+   🔥 Animated Gradient Background
+================================*/
+.hero-section {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+}
+
+.animated-bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, #ff0080, #ff8c00, #40e0d0, #8a2be2);
+  background-size: 400% 400%;
+  animation: gradientMove 8s ease infinite;
+  z-index: 0;
+  filter: blur(40px);
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ===============================
+   🌈 Floating Circles
+================================*/
+.floating-circle {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.5;
+  animation: floaty 6s ease-in-out infinite alternate;
+}
+
+.circle1 {
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, #ff0080, #ff0000);
+  top: 20%;
+  left: 10%;
+}
+
+.circle2 {
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, #40e0d0, #0088ff);
+  bottom: 15%;
+  right: 15%;
+  animation-delay: 1.5s;
+}
+
+.circle3 {
+  width: 150px;
+  height: 150px;
+  background: radial-gradient(circle, #00ff7f, #00bfff);
+  top: 60%;
+  left: 70%;
+  animation-delay: 0.7s;
+}
+
+@keyframes floaty {
+  from { transform: translateY(0px) rotate(0deg); }
+  to { transform: translateY(-30px) rotate(360deg); }
+}
+
+/* ===============================
+   ✨ Hero Content
+================================*/
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: white;
+  padding-top: 80px;
+}
+
+.neon-title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  text-shadow: 
+    0 0 10px #fff, 
+    0 0 20px #00ffff,
+    0 0 30px #00ffff,
+    0 0 40px #00ffff;
+  animation: glowPulse 2s ease-in-out infinite;
+}
+
+@keyframes glowPulse {
+  0% { text-shadow: 0 0 10px #fff, 0 0 20px #00ffff; }
+  50% { text-shadow: 0 0 25px #fff, 0 0 50px #00ffff; }
+  100% { text-shadow: 0 0 10px #fff, 0 0 20px #00ffff; }
+}
+
+.hero-tagline {
+  font-size: 1.3rem;
+  margin: 15px 0 40px;
+  color: #ffe600;
+  letter-spacing: 3px;
+  animation: fadeInUp 2s ease;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ===============================
+   🎯 Floating Game Icons
+================================*/
+.game-icons {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  margin-bottom: 40px;
+}
+
+.float-img {
+  width: 120px;
+  animation: floating 3s ease-in-out infinite;
+  filter: drop-shadow(0 0 10px rgba(255,255,255,0.7));
+}
+
+.float-img:hover {
+  transform: scale(1.2);
+  filter: drop-shadow(0 0 20px #fff);
+}
+
+.img1 { animation-delay: 0s; }
+.img2 { animation-delay: 1s; }
+.img3 { animation-delay: 2s; }
+
+@keyframes floating {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+
+/* ===============================
+   🚀 Play Button
+================================*/
+.play-now {
+  background: linear-gradient(45deg, #00ffcc, #007bff, #ff00ff);
+  background-size: 200% 200%;
+  border: none;
+  padding: 15px 50px;
+  border-radius: 50px;
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.3s;
+  animation: buttonGlow 3s infinite alternate;
+}
+
+@keyframes buttonGlow {
+  0% { box-shadow: 0 0 10px #00ffff; }
+  100% { box-shadow: 0 0 25px #ff00ff; }
+}
+
+.play-now:hover {
+  background-position: right center;
+  transform: scale(1.1);
+}

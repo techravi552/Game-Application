@@ -1,0 +1,310 @@
+/* onlineTic.css */
+
+/* Reset & base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #e0f7fa, #f3e5f5);
+}
+
+/* Main container */
+.app {
+  max-width: 520px;
+  margin: 40px auto;
+  text-align: center;
+  background: #ffffffcc;
+  padding: 35px 30px 45px 30px;
+  border-radius: 20px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.2);
+  animation: fadeIn 0.8s ease-in;
+}
+
+/* Heading */
+h1 {
+  color: #2a2a72;
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.2);
+  margin-bottom: 30px;
+  animation: glowText 2s infinite alternate;
+}
+
+/* Controls for room creation/join */
+.controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+}
+
+.controls button {
+  padding: 12px 24px;
+  background: linear-gradient(135deg, #2a2a72, #4b4bb3);
+  color: #fff;
+  border: none;
+  border-radius: 14px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.controls button:hover {
+  background: linear-gradient(135deg, #4b4bb3, #2a2a72);
+  transform: translateY(-3px) scale(1.05) rotate(-1deg);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+}
+
+.controls input {
+  padding: 12px;
+  border-radius: 12px;
+  border: 2px solid #ccc;
+  width: 160px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.controls input:focus {
+  outline: none;
+  border-color: #2a2a72;
+  box-shadow: 0 0 12px rgba(42,42,114,0.4);
+}
+
+/* Room ID display */
+.room-id {
+  color: #ff0000;
+  font-weight: bold;
+  font-size: 22px;
+  padding: 8px 18px;
+  border-radius: 12px;
+  display: inline-block;
+  margin: 15px 0;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.3);
+  animation: glowRoom 2s infinite alternate;
+}
+
+/* Dashboard info */
+.dashboard div {
+  margin: 12px 0;
+  font-weight: 500;
+  color: #3a2d2d;
+}
+
+/* Status messages */
+.status-your-turn { 
+  color: #009900; 
+  font-weight: bold; 
+  animation: pulseGreen 1s infinite; 
+}
+
+.status-opponent-turn { 
+  color: #ff3300; 
+  font-weight: bold; 
+  animation: pulseRed 1s infinite; 
+}
+
+.status-win, .status-lost, .status-draw {
+  font-size: 28px;
+  font-weight: 900;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+  margin: 18px 0;
+  animation: pop 0.5s ease-out;
+}
+
+.status-win { color: #00bfff; }
+.status-lost { color: #ff0033; }
+.status-draw { color: #ff9900; }
+.status-waiting { color: #ff6600; font-weight: bold; animation: pulse 1s infinite; }
+
+/* Board */
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 120px);
+  gap: 20px;
+  justify-content: center;
+  margin-top: 30px;
+  /* background-color: rgb(120, 107, 107); */
+}
+
+.cell {
+  width: 120px;
+  height: 120px;
+  background: linear-gradient(145deg, #f0f0f0, #dcdcdc);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 50px;
+  font-weight: bold;
+  color: #1313ea;
+  cursor: pointer;
+  border-radius: 18px;
+  user-select: none;
+  box-shadow: 5px 5px 18px rgba(0,0,0,0.1),
+              -5px -5px 18px rgba(130, 81, 81, 0.7);
+  transition: all 0.25s ease;
+}
+
+.cell:hover {
+  /* transform: scale(1.1) rotate(2deg); */
+  background: linear-gradient(135deg, #ff9999, #ffcc66, #66ffcc, #66ccff);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+  color: #222;
+}
+
+.cell.filled {
+  cursor: not-allowed;
+  background: linear-gradient(145deg, #dcdcdc, #f0f0f0);
+  color: #444;
+  box-shadow: inset 4px 4px 10px rgba(0,0,0,0.1),
+              inset -4px -4px 10px rgba(255,255,255,0.7);
+}
+
+.cell.disabled {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+/* Animations */
+@keyframes pop { 
+  0% { transform: scale(0.5); opacity: 0.5; } 
+  60% { transform: scale(1.2); opacity: 1; } 
+  100% { transform: scale(1); opacity: 1; } 
+}
+
+@keyframes pulse {0%,100%{opacity:1}50%{opacity:0.5}}
+@keyframes pulseGreen {0%,100%{opacity:1}50%{opacity:0.5}}
+@keyframes pulseRed {0%,100%{opacity:1}50%{opacity:0.5}}
+@keyframes fadeIn {0%{opacity:0; transform:translateY(-20px)}100%{opacity:1; transform:translateY(0)}}
+@keyframes glowText {0%{text-shadow:1px 1px 3px rgba(0,0,0,0.2)}50%{text-shadow:2px 2px 10px #00bfff}100%{text-shadow:1px 1px 3px rgba(0,0,0,0.2)}}
+@keyframes glowRoom {0%{text-shadow:1px 1px 3px rgba(0,0,0,0.3)}50%{text-shadow:2px 2px 12px #ff4d4d,0 0 10px #ff0000,0 0 15px #ff6666}100%{text-shadow:1px 1px 3px rgba(0,0,0,0.3)}}
+
+/* Board */
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 120px);
+  gap: 30px; /* boxes ke beech ka gap badhaya */
+  justify-content: center;
+  margin-top: 30px;
+}
+
+/* Result text styling (win/lost/draw) */
+.status-win,
+.status-lost,
+.status-draw {
+  font-size: 36px; /* bada kar diya */
+  font-weight: 900;
+  text-shadow: 3px 3px 12px rgba(0,0,0,0.3);
+  margin: 25px 0; 
+  animation: popResult 0.7s ease-out;
+  text-align: center;
+  padding: 10px 15px;
+  border-radius: 12px;
+  display: inline-block;
+}
+
+/* Colors for results */
+.status-win { 
+  background: linear-gradient(45deg, #00bfff, #00ffcc, #66ff66); 
+  color: #fff;
+}
+.status-lost { 
+  background: linear-gradient(45deg, #ff0033, #ff6600, #ffcc00); 
+  color: #fff;
+}
+.status-draw { 
+  background: linear-gradient(45deg, #ff9900, #ffcc33, #ffff66); 
+  color: #fff;
+}
+
+/* Pop animation for result */
+@keyframes popResult {
+  0% { transform: scale(0.5); opacity: 0.3; }
+  60% { transform: scale(1.3); opacity: 1; }
+  100% { transform: scale(1); opacity: 1; }
+  
+}
+
+/* Room ID styling */
+.room-id {
+  font-size: 26px; /* bada kar diya */
+  font-weight: bold;
+  padding: 8px 18px;
+  border-radius: 12px;
+  display: inline-block;
+  margin: 20px 0;
+  text-align: center;
+  background: linear-gradient(135deg, #ff4d4d, #ff9900, #33cc33, #3399ff, #ff33cc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 1px 1px 6px rgba(0,0,0,0.25);
+  animation: glowRoomCode 2s infinite alternate;
+}
+
+/* Glow animation for Room ID */
+@keyframes glowRoomCode {
+  0% { text-shadow: 1px 1px 4px rgba(0,0,0,0.2); }
+  50% { text-shadow: 2px 2px 12px #ff4d4d, 0 0 10px #33ccff, 0 0 15px #ff33cc; }
+  100% { text-shadow: 1px 1px 4px rgba(0,0,0,0.2); }
+}
+
+/* Sparkle animation for room code and result text */
+@keyframes sparkle {
+  0%, 100% { text-shadow: 
+    2px 2px 4px #ff4d4d, 
+    -2px -2px 4px #33ccff, 
+    2px -2px 6px #ff33cc, 
+    -2px 2px 6px #ff9900; 
+  }
+  50% { text-shadow: 
+    4px 4px 12px #ff33ff, 
+    -4px -4px 12px #33ffcc, 
+    4px -4px 14px #ffff33, 
+    -4px 4px 14px #ff0033; 
+  }
+}
+
+/* Apply sparkle on hover to room code */
+.roomid{
+    font-size: 25px;
+}
+.roomid:hover {
+  animation: glowRoomCode 2s infinite alternate, sparkle 1.2s infinite alternate;
+  cursor: pointer;
+}
+
+/* Apply sparkle on result text on hover */
+.status-win:hover,
+.status-lost:hover,
+.status-draw:hover {
+  animation: popResult 0.7s ease-out, sparkle 1.2s infinite alternate;
+  cursor: default;
+}
+
+/* Slight rotate and scale for extra dynamic feel on result */
+.status-win:hover,
+.status-lost:hover,
+.status-draw:hover {
+  transform: scale(1.1) rotate(-2deg);
+}
+
+/* Add sparkle effect to cells on hover as well */
+.cell:hover {
+  animation: sparkle 1.2s infinite alternate;
+  cursor: pointer;
+}
+.status{
+    font-size: 25px;
+    color: red;
+}
+.resetbutton{
+        height: 30px;
+    width: 100px;
+    border: 2px solid black;
+    background: firebrick;
+    border-radius: 20%;
+}
