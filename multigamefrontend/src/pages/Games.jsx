@@ -12,8 +12,11 @@ export default function Games() {
   const games = [
     { name: "Tic Tac Toe", img: tic },
     { name: "Rock Paper Scissors", img: rock },
-    { name: "Memory Game", img: memory },
+  
+    {name:"Mind Game" , img: memory},
     { name: "Online Tic", img: onlinetic },
+    
+    
   ];
 
   return (

@@ -3,7 +3,7 @@ import { io } from "socket.io-client";
 import "../styles/OnlineTic.css";
 import { useNavigate } from "react-router-dom";
 
-const socket = io("http://localhost:5000"); // change Render URL
+const socket = io("https://game-application-frvp.onrender.com"); // change Render URL
 
 function OnlineTic() {
   const [roomInput, setRoomInput] = useState("");

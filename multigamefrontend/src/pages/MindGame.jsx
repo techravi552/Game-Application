@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import '../styles/MindGame.css';
+import { useNavigate } from "react-router-dom";
 
 export default function MemoryGame() {
   const allEmojis = ['🎮', '🎨', '🎭', '🎪', '🎸', '🎯', '🏀', '🎲', '🎳', '🎰', '🎱', '🎴'];
@@ -13,6 +14,7 @@ export default function MemoryGame() {
   const [gameStarted, setGameStarted] = useState(false);
   const [difficulty, setDifficulty] = useState(null);
   const [showDifficultyScreen, setShowDifficultyScreen] = useState(true);
+    const navigate = useNavigate();
 
   const startGame = (level) => {
     setDifficulty(level);
@@ -101,6 +103,15 @@ export default function MemoryGame() {
   };
 
   return (
+
+    <>
+     <div className="ttt-container">
+      {/* 🔙 Home Button */}
+      <button className="home-btn" onClick={() => navigate("/")}>
+        ⬅️ Home
+      </button>
+    
+  
     <div className="app-container">
       <div className="game-wrapper">
         {showDifficultyScreen ? (
@@ -202,5 +213,7 @@ export default function MemoryGame() {
         )}
       </div>
     </div>
+    </div>
+      </>
   );
 }
