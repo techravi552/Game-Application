@@ -47,4 +47,8 @@ It includes multiple small games that you can play both online and offline!
 ## 💾 How to Run
 1. Clone this repository:
    ```bash
-   git clone https://github.com/techravi552/YourRepoName.git
+   git clone https://github.com/techravi552/Game-Application.git
+
+
+
+   Live Project link - https://multipalegame.netlify.app/
