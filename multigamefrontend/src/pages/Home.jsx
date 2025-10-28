@@ -21,8 +21,8 @@ export default function Home() {
 
       {/* Main content */}
       <div className="hero-content">
-        <h1 className="neon-title">🎮 GAME WORLD</h1>
-        <p className="hero-tagline">Fun • Logic • Challenge</p>
+        <h1 className="neon-title">🎮 Game-Application</h1>
+        <p className="hero-tagline">Fun • Logic • Challenge • Online</p>
 
         {/* Floating Game Icons */}
         <div className="game-icons">
